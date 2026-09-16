@@ -3,66 +3,257 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>[Your Name] - Professional Portfolio</title>
-    <!-- We link our style sheet (CSS) here -->
+    <title>Suhan Reddy | Portfolio</title>
+    <!-- Unicons & Boxicons -->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
     <link rel="stylesheet" href="style.css">
-    <!-- These lines link special fonts from Google to make it look modern -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- HEADER -->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a href="#" class="nav__logo">Suhan Reddy</a>
 
-    <!-- Main Content Area -->
-    <div class="container">
-        <header>
-            <div class="header-content">
-                <!-- This line will look for an image named profile.jpg in your folder -->
-                <img src="profile.jpg" alt="Profile of [Your Name]" class="profile-img">
-                <h1>[Your Name]</h1>
-                <p class="subtitle">Front-End Developer | UI/UX Enthusiast</p>
-                <button class="btn main-btn" id="openPopup">View My Experience</button>
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list grid">
+                    <li class="nav__item">
+                        <a href="#home" class="nav__link active-link">
+                            <i class="uil uil-estate nav__icon"></i> Home
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#about" class="nav__link">
+                            <i class="uil uil-user nav__icon"></i> About
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#skills" class="nav__link">
+                            <i class="uil uil-file-alt nav__icon"></i> Skills
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#services" class="nav__link">
+                            <i class="uil uil-briefcase-alt nav__icon"></i> Services
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#portfolio" class="nav__link">
+                            <i class="uil uil-scenery nav__icon"></i> Portfolio
+                        </a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="#contact" class="nav__link">
+                            <i class="uil uil-message nav__icon"></i> Contact
+                        </a>
+                    </li>
+                </ul>
+                <i class="uil uil-times nav__close" id="nav-close"></i>
             </div>
-        </header>
 
-        <section class="skills-section">
-            <h2>Core Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-tag">HTML5</div>
-                <div class="skill-tag">CSS3 (Grid/Flex)</div>
-                <div class="skill-tag">JavaScript (ES6+)</div>
-                <div class="skill-tag">React.js</div>
-                <div class="skill-tag">Responsive Design</div>
-                <div class="skill-tag">Git/GitHub</div>
+            <div class="nav__btns">
+                <!-- Theme change button -->
+                <i class="uil uil-moon change-theme" id="theme-button"></i>
+                <div class="nav__toggle" id="nav-toggle">
+                    <i class="uil uil-apps"></i>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- MAIN -->
+    <main class="main">
+        <!-- HOME -->
+        <section class="home section" id="home">
+            <div class="home__container container grid">
+                <div class="home__content grid">
+                    <div class="home__social">
+                        <a href="https://linkedin.com/" target="_blank" class="home__social-icon">
+                            <i class="uil uil-linkedin-alt"></i>
+                        </a>
+                        <a href="https://github.com/" target="_blank" class="home__social-icon">
+                            <i class="uil uil-github-alt"></i>
+                        </a>
+                        <a href="https://twitter.com/" target="_blank" class="home__social-icon">
+                            <i class="uil uil-twitter-alt"></i>
+                        </a>
+                    </div>
+
+                    <div class="home__img">
+                        <svg class="home__blob" viewBox="0 0 200 187" xmlns="http://www.w3.org/2000/svg">
+                            <mask id="mask0" mask-type="alpha">
+                                <path d="M190.312 36.4879C206.582 62.1187 201.309 102.826 182.328 134.186C163.346 165.547 
+                                130.807 187.559 100.226 186.353C69.6454 185.297 41.0228 161.023 21.7403 129.362C2.45775 
+                                97.8511 -7.48481 59.1033 6.67581 34.5279C20.9871 10.1032 59.7028 -0.149132 97.9666 
+                                0.00163737C136.23 0.303176 174.042 10.857 190.312 36.4879Z"/>
+                            </mask>
+                            <g mask="url(#mask0)">
+                                <path d="M190.312 36.4879C206.582 62.1187 201.309 102.826 182.328 134.186C163.346 165.547 
+                                130.807 187.559 100.226 186.353C69.6454 185.297 41.0228 161.023 21.7403 129.362C2.45775 
+                                97.8511 -7.48481 59.1033 6.67581 34.5279C20.9871 10.1032 59.7028 -0.149132 97.9666 
+                                0.00163737C136.23 0.303176 174.042 10.857 190.312 36.4879Z"/>
+                                <image class="home__blob-img" x="12" y="18" href="profile.png"/>
+                            </g>
+                        </svg>
+                    </div>
+
+                    <div class="home__data">
+                        <h1 class="home__title">Hi, I'm Suhan Reddy</h1>
+                        <h3 class="home__subtitle">Software Developer</h3>
+                        <p class="home__description">High-level experience in web design and development knowledge, producing quality work.</p>
+                        <a href="#contact" class="button button--flex">
+                            Contact Me <i class="uil uil-message button__icon"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="home__scroll">
+                    <a href="#about" class="home__scroll-button button--flex">
+                        <i class="uil uil-mouse-alt home__scroll-mouse"></i>
+                        <span class="home__scroll-name">Scroll down</span>
+                        <i class="uil uil-arrow-down home__scroll-arrow"></i>
+                    </a>
+                </div>
             </div>
         </section>
-    </div>
 
-    <!-- The Popup (Modal) - Hidden by Default -->
-    <div class="popup-overlay" id="popupOverlay">
-        <div class="popup-content">
-            <span class="close-btn" id="closePopup">&times;</span>
-            <h2>Work Experience</h2>
-            <hr>
-            <div class="job">
-                <h3>Front-End Intern</h3>
-                <p class="company">Tech Solutions Inc. - Summer 2023</p>
-                <ul>
-                    <li>Developed responsive landing pages using React and CSS Grid.</li>
-                    <li>Collaborated with design teams to translate mockups into clean code.</li>
-                </ul>
-            </div>
-            <div class="job">
-                <h3>Freelance Web Designer</h3>
-                <p class="company">Self-Employed - 2022-Present</p>
-                <ul>
-                    <li>Designed and deployed custom websites for local small businesses.</li>
-                </ul>
-            </div>
-        </div>
-    </div>
+        <!-- ABOUT -->
+        <section class="about section" id="about">
+            <h2 class="section__title">About Me</h2>
+            <span class="section__subtitle">My introduction</span>
 
-    <!-- We link our JavaScript file at the end so it loads after the HTML -->
-    <script src="script.js"></script>
+            <div class="about__container container grid">
+                <img src="profile.png" alt="" class="about__img">
+
+                <div class="about__data">
+                    <p class="about__description">
+                        Web developer with extensive knowledge and years of experience, working in web technologies and UI / UX design, delivering quality work.
+                    </p>
+
+                    <div class="about__info">
+                        <div>
+                            <span class="about__info-title">02+</span>
+                            <span class="about__info-name">Years <br> experience</span>
+                        </div>
+                        <div>
+                            <span class="about__info-title">10+</span>
+                            <span class="about__info-name">Completed <br> projects</span>
+                        </div>
+                        <div>
+                            <span class="about__info-title">05+</span>
+                            <span class="about__info-name">Companies <br> worked</span>
+                        </div>
+                    </div>
+
+                    <div class="about__buttons">
+                        <a download="" href="#" class="button button--flex">
+                            Download CV <i class="uil uil-download-alt button__icon"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SERVICES / POPUPS -->
+        <section class="services section" id="services">
+            <h2 class="section__title">Services</h2>
+            <span class="section__subtitle">What I offer</span>
+
+            <div class="services__container container grid">
+                <!-- SERVICE 1 -->
+                <div class="services__content">
+                    <div>
+                        <i class="uil uil-web-grid services__icon"></i>
+                        <h3 class="services__title">Ui/Ux <br> Designer</h3>
+                    </div>
+                    <span class="button button--flex button--small button--link services__button">
+                        View More <i class="uil uil-arrow-right button__icon"></i>
+                    </span>
+
+                    <div class="services__modal">
+                        <div class="services__modal-content">
+                            <h4 class="services__modal-title">Ui/Ux <br> Designer</h4>
+                            <i class="uil uil-times services__modal-close"></i>
+
+                            <ul class="services__modal-services grid">
+                                <li class="services__modal-service">
+                                    <i class="uil uil-check-circle services__modal-icon"></i>
+                                    <p>I develop the user interface.</p>
+                                </li>
+                                <li class="services__modal-service">
+                                    <i class="uil uil-check-circle services__modal-icon"></i>
+                                    <p>Web page development.</p>
+                                </li>
+                                <li class="services__modal-service">
+                                    <i class="uil uil-check-circle services__modal-icon"></i>
+                                    <p>I create ux element interactions.</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SERVICE 2 -->
+                <div class="services__content">
+                    <div>
+                        <i class="uil uil-arrow services__icon"></i>
+                        <h3 class="services__title">Frontend <br> Developer</h3>
+                    </div>
+                    <span class="button button--flex button--small button--link services__button">
+                        View More <i class="uil uil-arrow-right button__icon"></i>
+                    </span>
+
+                    <div class="services__modal">
+                        <div class="services__modal-content">
+                            <h4 class="services__modal-title">Frontend <br> Developer</h4>
+                            <i class="uil uil-times services__modal-close"></i>
+
+                            <ul class="services__modal-services grid">
+                                <li class="services__modal-service">
+                                    <i class="uil uil-check-circle services__modal-icon"></i>
+                                    <p>Modern responsive layouts.</p>
+                                </li>
+                                <li class="services__modal-service">
+                                    <i class="uil uil-check-circle services__modal-icon"></i>
+                                    <p>Cross-browser compatibility.</p>
+                                </li>
+                                <li class="services__modal-service">
+                                    <i class="uil uil-check-circle services__modal-icon"></i>
+                                    <p>Clean code and fast page loads.</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section class="contact section" id="contact">
+            <h2 class="section__title">Contact Me</h2>
+            <span class="section__subtitle">Get in touch</span>
+
+            <div class="contact__container container grid">
+                <div>
+                    <div class="contact__information">
+                        <i class="uil uil-envelope contact__icon"></i>
+                        <div>
+                            <h3 class="contact__title">Email</h3>
+                            <span class="contact__subtitle">suhan@example.com</span>
+                        </div>
+                    </div>
+                    <div class="contact__information">
+                        <i class="uil uil-map-marker contact__icon"></i>
+                        <div>
+                            <h3 class="contact__title">Location</h3>
+                            <span class="contact__subtitle">India</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="main.js"></script>
 </body>
 </html>

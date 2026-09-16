@@ -3,53 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - Suhan Reddy</title>
+    <title>[Your Name] - Professional Portfolio</title>
+    <!-- We link our style sheet (CSS) here -->
     <link rel="stylesheet" href="style.css">
+    <!-- These lines link special fonts from Google to make it look modern -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="logo">Suhan Reddy</div>
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <section id="hero">
-        <h1>Hi, I'm Vanga Suhan Reddy</h1>
-        <p>Aspiring Developer</p>
-        <a href="#contact" class="btn">Get in Touch</a>
-    </section>
+    <!-- Main Content Area -->
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <!-- This line will look for an image named profile.jpg in your folder -->
+                <img src="profile.jpg" alt="Profile of [Your Name]" class="profile-img">
+                <h1>[Your Name]</h1>
+                <p class="subtitle">Front-End Developer | UI/UX Enthusiast</p>
+                <button class="btn main-btn" id="openPopup">View My Experience</button>
+            </div>
+        </header>
 
-    <section id="about">
-        <h2>About Me</h2>
-        <p>Passionate learner looking to build impactful web applications.</p>
-    </section>
+        <section class="skills-section">
+            <h2>Core Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-tag">HTML5</div>
+                <div class="skill-tag">CSS3 (Grid/Flex)</div>
+                <div class="skill-tag">JavaScript (ES6+)</div>
+                <div class="skill-tag">React.js</div>
+                <div class="skill-tag">Responsive Design</div>
+                <div class="skill-tag">Git/GitHub</div>
+            </div>
+        </section>
+    </div>
 
-    <section id="skills">
-        <h2>Skills</h2>
-        <ul>
-            <li>HTML & CSS</li>
-            <li>JavaScript</li>
-            <li>Responsive Design</li>
-        </ul>
-    </section>
-
-    <section id="projects">
-        <h2>Projects</h2>
-        <div class="project-card">
-            <h3>Portfolio Website</h3>
-            <p>A clean, responsive personal portfolio.</p>
+    <!-- The Popup (Modal) - Hidden by Default -->
+    <div class="popup-overlay" id="popupOverlay">
+        <div class="popup-content">
+            <span class="close-btn" id="closePopup">&times;</span>
+            <h2>Work Experience</h2>
+            <hr>
+            <div class="job">
+                <h3>Front-End Intern</h3>
+                <p class="company">Tech Solutions Inc. - Summer 2023</p>
+                <ul>
+                    <li>Developed responsive landing pages using React and CSS Grid.</li>
+                    <li>Collaborated with design teams to translate mockups into clean code.</li>
+                </ul>
+            </div>
+            <div class="job">
+                <h3>Freelance Web Designer</h3>
+                <p class="company">Self-Employed - 2022-Present</p>
+                <ul>
+                    <li>Designed and deployed custom websites for local small businesses.</li>
+                </ul>
+            </div>
         </div>
-    </section>
+    </div>
 
-    <section id="contact">
-        <h2>Contact Me</h2>
-        <p>Email: your.email@example.com</p>
-    </section>
+    <!-- We link our JavaScript file at the end so it loads after the HTML -->
+    <script src="script.js"></script>
 </body>
 </html>

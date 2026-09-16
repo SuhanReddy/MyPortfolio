@@ -1,74 +1,191 @@
+/* --- Global Styles --- */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    scroll-behavior: smooth;
 }
 
 body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
+    /* Using modern, clean fonts */
+    font-family: 'Poppins', sans-serif;
+    background-color: #f0f4f8; /* A light, clean background */
     color: #333;
-    background-color: #f4f4f9;
+    overflow-x: hidden; /* Prevent strange horizontal scrolling */
 }
 
+/* Base fade-in animation for everything */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    animation: fadeIn 1s ease-out; /* Main page content fades in */
+}
+
+/* --- Header Section --- */
 header {
-    background: #333;
-    color: #fff;
-    padding: 1rem 0;
-    position: sticky;
-    top: 0;
-}
-
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 80%;
-    margin: auto;
-}
-
-nav ul {
-    display: flex;
-    list-style: none;
-}
-
-nav ul li {
-    margin-left: 20px;
-}
-
-nav ul li a {
-    color: #fff;
-    text-decoration: none;
-}
-
-section {
-    padding: 50px 20px;
-    width: 80%;
-    margin: auto;
     text-align: center;
+    padding: 60px 0;
+    border-bottom: 2px solid #ddd;
+    margin-bottom: 40px;
 }
 
-#hero {
-    background: #6c5ce7;
-    color: #fff;
-    padding: 100px 20px;
+.profile-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%; /* Makes it a circle */
+    object-fit: cover; /* Prevents stretching */
+    border: 5px solid #fff;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+    /* Special "pop" animation for the photo */
+    transition: transform 0.3s ease;
 }
 
+.profile-img:hover {
+    transform: scale(1.1) rotate(5deg);
+}
+
+h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 3rem;
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    color: #7f8c8d;
+    margin-bottom: 30px;
+    font-weight: 300;
+}
+
+/* Modern Button Style */
 .btn {
-    display: inline-block;
-    background: #fff;
-    color: #6c5ce7;
-    padding: 10px 20px;
-    text-decoration: none;
-    margin-top: 20px;
-    border-radius: 5px;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 30px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
-.project-card {
-    background: #fff;
-    padding: 20px;
-    margin-top: 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+.main-btn {
+    background-color: #3498db; /* A modern blue */
+    color: white;
+    box-shadow: 0 4px 10px rgba(52, 152, 219, 0.3);
+}
+
+.main-btn:hover {
+    background-color: #2980b9;
+    transform: translateY(-3px); /* Lifts up on hover */
+    box-shadow: 0 6px 15px rgba(52, 152, 219, 0.4);
+}
+
+/* --- Skills Section --- */
+.skills-section h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    text-align: center;
+    margin-bottom: 30px;
+    color: #2c3e50;
+}
+
+.skills-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.skill-tag {
+    background-color: #fff;
+    padding: 10px 20px;
+    border-radius: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    font-size: 0.9rem;
+    transition: background-color 0.3s;
+}
+
+.skill-tag:hover {
+    background-color: #e3f2fd;
+}
+
+/* --- Popup (Modal) Styles --- */
+/* The dark overlay that covers the page */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black */
+    display: none; /* Initially hidden */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Puts it on top of everything */
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* This class will be added by JavaScript to show the popup */
+.popup-overlay.show {
+    display: flex;
+    opacity: 1;
+}
+
+/* The actual box with content */
+.popup-content {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 600px;
+    position: relative;
+    transform: scale(0.7); /* Start small for the "pop-in" animation */
+    transition: transform 0.3s ease-out;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+/* When the overlay is shown, scale the content box to full size */
+.popup-overlay.show .popup-content {
+    transform: scale(1);
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 30px;
+    cursor: pointer;
+    color: #aaa;
+}
+
+.close-btn:hover {
+    color: #333;
+}
+
+.job {
+    margin-top: 25px;
+}
+
+.job h3 {
+    color: #3498db;
+}
+
+.company {
+    font-style: italic;
+    color: #7f8c8d;
+    margin-bottom: 10px;
+}
+
+.job ul {
+    list-style-position: inside;
+    font-weight: 300;
 }

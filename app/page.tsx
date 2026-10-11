@@ -215,6 +215,7 @@ function StreamingRow({ row, onSelect }: { row: PortfolioRow; onSelect: (item: P
 
 export default function Home() {
   const [selected, setSelected] = useState<PortfolioItem | null>(null);
+  const siteBasePath = process.env.NODE_ENV === "production" ? "/MyPortfolio" : "";
 
   useEffect(() => {
     if (!selected) return;
@@ -241,6 +242,9 @@ export default function Home() {
           className="billboard-image-wrap"
           role="img"
           aria-label="Portrait of Suhan Reddy Vanga"
+          style={{
+            backgroundImage: `url("${siteBasePath}/assets/Suhan%20Reddy%20Photo.png"), radial-gradient(ellipse at 50% 38%, rgba(115,33,35,.7), transparent 56%), linear-gradient(135deg,#241719,#101010 72%)`,
+          }}
         />
         <div className="billboard-copy">
           <p className="billboard-kicker"><span className="netflix-n">N</span> PORTFOLIO ORIGINAL</p>
@@ -250,7 +254,7 @@ export default function Home() {
           <p className="billboard-description">Building intelligent systems and thoughtful digital experiences, one meaningful problem at a time.</p>
           <div className="billboard-actions">
             <a className="billboard-button play-button" href="#projects"><Play size={17} fill="currentColor" /> Explore Work</a>
-            <a className="billboard-button resume-button" href="/Resume.pdf" download="Suhan-Reddy-Vanga-Resume.pdf"><Download size={18} /> Download Resume</a>
+            <a className="billboard-button resume-button" href={`${siteBasePath}/Resume.pdf`} download="Suhan-Reddy-Vanga-Resume.pdf"><Download size={18} /> Download Resume</a>
             <a className="billboard-button resume-button" href="https://github.com/SuhanReddy" target="_blank" rel="noreferrer"><Github size={18} /> GitHub</a>
             <a className="billboard-button resume-button" href="mailto:vanga.suhanreddy@gmail.com"><Mail size={18} /> Email</a>
           </div>

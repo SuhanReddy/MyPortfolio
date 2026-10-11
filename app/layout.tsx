@@ -13,13 +13,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Vanga Suhan Reddy | Software Engineer",
+  title: "Suhan Reddy Vanga | AI/ML & Web Developer",
   description:
-    "Vanga Suhan Reddy is an AI/ML master's student at TU Darmstadt building thoughtful software, NLP systems, and useful experiences.",
+    "Suhan Reddy Vanga is an AI/ML and web developer, pursuing a master's degree at TU Darmstadt and building intelligent, human-centered software.",
   openGraph: {
-    title: "Vanga Suhan Reddy | Software Engineer",
-    description:
-      "Software engineering, applied AI, and the work behind useful products.",
+    title: "Suhan Reddy Vanga | AI/ML & Web Developer",
+    description: "AI/ML, web development, featured projects, research, and education.",
     type: "website",
   },
 };

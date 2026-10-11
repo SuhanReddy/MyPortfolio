@@ -243,7 +243,7 @@ export default function Home() {
           role="img"
           aria-label="Portrait of Suhan Reddy Vanga"
           style={{
-            backgroundImage: `url("${siteBasePath}/assets/Suhan%20Reddy%20Photo.png"), radial-gradient(ellipse at 50% 38%, rgba(115,33,35,.7), transparent 56%), linear-gradient(135deg,#241719,#101010 72%)`,
+            backgroundImage: `url("${siteBasePath}/assets/profile-photo.png"), radial-gradient(ellipse at 50% 38%, rgba(115,33,35,.7), transparent 56%), linear-gradient(135deg,#241719,#101010 72%)`,
           }}
         />
         <div className="billboard-copy">

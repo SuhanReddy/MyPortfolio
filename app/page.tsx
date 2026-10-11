@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { ArrowDown, ArrowLeft, ArrowRight, ChevronRight, Download, Info, Play, X } from "lucide-react";
+import { ArrowDown, ArrowLeft, ArrowRight, ChevronRight, Download, Github, Info, Mail, Play, X } from "lucide-react";
 
 type PortfolioItem = {
   title: string;
@@ -251,6 +251,8 @@ export default function Home() {
           <div className="billboard-actions">
             <a className="billboard-button play-button" href="#projects"><Play size={17} fill="currentColor" /> Explore Work</a>
             <a className="billboard-button resume-button" href="/Resume.pdf" download="Suhan-Reddy-Vanga-Resume.pdf"><Download size={18} /> Download Resume</a>
+            <a className="billboard-button resume-button" href="https://github.com/SuhanReddy" target="_blank" rel="noreferrer"><Github size={18} /> GitHub</a>
+            <a className="billboard-button resume-button" href="mailto:vanga.suhanreddy@gmail.com"><Mail size={18} /> Email</a>
           </div>
           <a className="scroll-cue" href="#experience"><ArrowDown size={14} /> Scroll to explore</a>
         </div>

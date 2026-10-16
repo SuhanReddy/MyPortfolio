@@ -23,6 +23,7 @@ const navigation = [
   { label: "Experience", href: "#experience" },
   { label: "Projects", href: "#projects" },
   { label: "Skills", href: "#skills" },
+  { label: "Languages", href: "#languages" },
   { label: "Education", href: "#education" },
   { label: "Contact", href: "#contact" },
 ];
@@ -30,7 +31,7 @@ const navigation = [
 const rows: PortfolioRow[] = [
   {
     id: "experience",
-    title: "Current Role & Experience (Original Series)",
+    title: "Current Role & Experience",
     items: [{
       title: "Teaching Assistant - Introduction to LLMs",
       eyebrow: "TEACHING ASSISTANT",
@@ -45,16 +46,28 @@ const rows: PortfolioRow[] = [
   },
   {
     id: "projects",
-    title: "Featured Projects (Trending Now)",
+    title: "Featured Projects",
     items: [
       {
-        title: "Intelligent Ambulance",
-        eyebrow: "AI · HUMAN INTERACTION",
-        meta: "Academic project · Published research",
-        description: "Bridging AI and human interaction technologies for emergency medical response.",
+        title: "Object-Centric Neuro-Symbolic Reasoning Demonstrated in a Box",
+        eyebrow: "NEURO-SYMBOLIC REASONING",
+        meta: "Academic project · TU Darmstadt · Oct 2024 – Apr 2025",
+        description: "A Raspberry Pi and camera prototype for detecting objects in a controlled box and reasoning over their attributes and relationships.",
         details: [
-          "An academic project integrating predictive analytics and AI decision support for emergency medical response.",
-          "The work explores how intelligent systems can support more informed, human-centered decisions in time-critical situations.",
+          "Built a Raspberry Pi and camera-based prototype that detects and represents objects placed inside a controlled box using a labeled object dataset.",
+          "Modeled objects by shape, color, size, position, and spatial relationships to support object-centric visual reasoning.",
+          "Implemented a Zendo-style setup combining visual perception with symbolic rules for compositional reasoning over objects and their relationships.",
+        ],
+        art: "art-ai",
+      },
+      {
+        title: "Intelligent Ambulance",
+        eyebrow: "AI-ASSISTED EMERGENCY RESPONSE",
+        meta: "Academic project · Published research",
+        description: "Exploring predictive analytics and AI-assisted decision support for emergency response and patient-care workflows.",
+        details: [
+          "Explored predictive analytics methods to identify emergency situations and organize relevant information for patient-care workflows.",
+          "Designed AI-assisted decision-support logic to help inform timely responses while keeping human judgment central.",
         ],
         art: "art-ambulance",
       },
@@ -62,21 +75,21 @@ const rows: PortfolioRow[] = [
         title: "Movie Recommendation System",
         eyebrow: "RECOMMENDATION SYSTEMS",
         meta: "Python · React · Cosine similarity",
-        description: "A content-based engine that finds films with a similar feel to the ones you love.",
+        description: "A content-based recommendation system that ranks related movies using their genres and descriptions.",
         details: [
-          "A content-based recommendation engine built with Python and React.",
-          "Uses cosine similarity to compare movie attributes and surface relevant recommendations.",
+          "Built a content-based recommendation workflow using movie genres and descriptions to represent similarities between titles.",
+          "Applied cosine similarity to rank related movies and presented recommendations through an interactive React interface.",
         ],
         art: "art-movies",
       },
       {
         title: "Sentiment Analysis Web App",
         eyebrow: "NATURAL LANGUAGE PROCESSING",
-        meta: "React · NLP · Real time",
-        description: "A focused web experience for understanding the tone behind written text.",
+        meta: "Python · NLP · React",
+        description: "An interactive web app that classifies submitted text as positive, negative, or neutral.",
         details: [
-          "A real-time NLP web application that classifies text as positive, negative, or neutral.",
-          "A React interface makes sentiment results clear and immediate.",
+          "Developed an NLP-based text classification workflow that labels input as positive, negative, or neutral sentiment.",
+          "Connected sentiment predictions to a React interface for interactive text submission and result display.",
         ],
         art: "art-sentiment",
       },
@@ -84,7 +97,7 @@ const rows: PortfolioRow[] = [
   },
   {
     id: "skills",
-    title: "Technical Skills (Genre Categories)",
+    title: "Technical Skills",
     items: [
       {
         title: "Languages",
@@ -118,19 +131,23 @@ const rows: PortfolioRow[] = [
         details: ["Git", "GitHub", "MySQL"],
         art: "art-tools",
       },
-      {
-        title: "Spoken Languages",
-        eyebrow: "ACROSS LANGUAGES",
-        meta: "English · German · Telugu",
-        description: "Comfortable collaborating across languages and cultures.",
-        details: ["English (C1)", "German (A2/B1)", "Telugu (Native)"],
-        art: "art-languages-spoken",
-      },
     ],
   },
   {
+    id: "languages",
+    title: "Languages",
+    items: [{
+      title: "Languages",
+      eyebrow: "LANGUAGES",
+      meta: "English · German · Telugu",
+      description: "English, German, and Telugu with proficiency levels.",
+      details: ["English (C1)", "German (A2/B1)", "Telugu (Native)"],
+      art: "art-languages-spoken",
+    }],
+  },
+  {
     id: "publications",
-    title: "Publications & Research (Critically Acclaimed)",
+    title: "Publications & Research",
     items: [{
       title: "The Intelligent Ambulance",
       eyebrow: "RESEARCH PUBLICATION",
@@ -146,7 +163,7 @@ const rows: PortfolioRow[] = [
   },
   {
     id: "education",
-    title: "Education (Origin Story)",
+    title: "Education",
     items: [
       {
         title: "M.Sc. Artificial Intelligence & Machine Learning",
@@ -250,8 +267,8 @@ export default function Home() {
           <p className="billboard-kicker"><span className="netflix-n">N</span> PORTFOLIO ORIGINAL</p>
           <h1 id="hero-title">Suhan Reddy Vanga</h1>
           <p className="billboard-subtitle">M.Sc. Artificial Intelligence &amp; Machine Learning Student | AI/ML &amp; Web Developer</p>
-          <div className="billboard-tags"><span>TU Darmstadt</span><i /> <span>Top 10 | AI/ML &amp; Web Development</span><i /> <span>English C1 | German B1</span></div>
-          <p className="billboard-description">Building intelligent systems and thoughtful digital experiences, one meaningful problem at a time.</p>
+          <div className="billboard-tags"><span>TU Darmstadt</span><i /> <span>Teaching Assistant · Introduction to Large Language Models</span></div>
+          <p className="billboard-description">M.Sc. Artificial Intelligence and Machine Learning student at TU Darmstadt and Teaching Assistant for Introduction to Large Language Models. Academic project experience in Python, PyTorch, TensorFlow, NLP, recommendation systems, and React. Published research on AI-assisted emergency response. Seeking student roles in AI/ML and software development.</p>
           <div className="billboard-actions">
             <a className="billboard-button play-button" href="#projects"><Play size={17} fill="currentColor" /> Explore Work</a>
             <a className="billboard-button resume-button" href={`${siteBasePath}/Resume.pdf`} download="Suhan-Reddy-Vanga-Resume.pdf"><Download size={18} /> Download Resume</a>

@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Suhan Reddy Vanga | AI/ML & Web Developer",
   description:
-    "Suhan Reddy Vanga is an AI/ML and web developer, pursuing a master's degree at TU Darmstadt and building intelligent, human-centered software.",
+    "M.Sc. Artificial Intelligence and Machine Learning student at TU Darmstadt, Teaching Assistant for Introduction to Large Language Models, and published researcher in AI-assisted emergency response.",
   openGraph: {
     title: "Suhan Reddy Vanga | AI/ML & Web Developer",
     description: "AI/ML, web development, featured projects, research, and education.",

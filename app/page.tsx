@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { ArrowDown, ArrowLeft, ArrowRight, ChevronRight, Download, Github, Info, Mail, Play, X } from "lucide-react";
+import { ArrowDown, ArrowLeft, ArrowRight, ChevronRight, Download, ExternalLink, Github, Info, Mail, Moon, Play, Sun, X } from "lucide-react";
 
 type PortfolioItem = {
   title: string;
@@ -10,6 +10,9 @@ type PortfolioItem = {
   description: string;
   details: string[];
   art: string;
+  image?: string;
+  imageFit?: "cover" | "contain";
+  externalLink?: { label: string; url: string };
 };
 
 type PortfolioRow = {
@@ -24,6 +27,7 @@ const navigation = [
   { label: "Projects", href: "#projects" },
   { label: "Skills", href: "#skills" },
   { label: "Languages", href: "#languages" },
+  { label: "Certifications", href: "#certifications" },
   { label: "Education", href: "#education" },
   { label: "Contact", href: "#contact" },
 ];
@@ -42,6 +46,7 @@ const rows: PortfolioRow[] = [
         "Guiding students through LLM architectures, prompt engineering, fine-tuning, and practical implementations.",
       ],
       art: "art-classroom",
+      image: "TU Darmstadt.png",
     }],
   },
   {
@@ -59,6 +64,7 @@ const rows: PortfolioRow[] = [
           "Implemented a Zendo-style setup combining visual perception with symbolic rules for compositional reasoning over objects and their relationships.",
         ],
         art: "art-ai",
+        image: "Zendo Game.jpg",
       },
       {
         title: "The Intelligence Ambulance: Bridging AI and Human Interaction Technologies",
@@ -70,6 +76,7 @@ const rows: PortfolioRow[] = [
           "Designed AI-assisted decision-support logic to help inform timely responses while keeping human judgment central.",
         ],
         art: "art-ambulance",
+        image: "Ambulance.png",
       },
       {
         title: "Movie Recommendation System",
@@ -81,6 +88,7 @@ const rows: PortfolioRow[] = [
           "Applied cosine similarity to rank related movies and presented recommendations through an interactive React interface.",
         ],
         art: "art-movies",
+        image: "Movie.jpg",
       },
       {
         title: "Sentiment Analysis Web App",
@@ -92,6 +100,7 @@ const rows: PortfolioRow[] = [
           "Connected sentiment predictions to a React interface for interactive text submission and result display.",
         ],
         art: "art-sentiment",
+        image: "Sentiment Analysis.jpg",
       },
     ],
   },
@@ -106,6 +115,7 @@ const rows: PortfolioRow[] = [
         description: "Programming languages for prototypes, products, and data-driven applications.",
         details: ["Python", "JavaScript"],
         art: "art-languages",
+        image: "Languages.jpg",
       },
       {
         title: "AI & Machine Learning",
@@ -114,6 +124,7 @@ const rows: PortfolioRow[] = [
         description: "From deep learning frameworks to language and recommendation systems.",
         details: ["PyTorch", "TensorFlow", "NumPy", "Pandas", "NLP", "Large Language Models (LLMs)", "Recommendation Systems", "Sentiment Analysis"],
         art: "art-ai",
+        image: "AIML.jpg",
       },
       {
         title: "Web Development",
@@ -122,6 +133,7 @@ const rows: PortfolioRow[] = [
         description: "Building responsive interfaces and the systems that support them.",
         details: ["React", "Node.js", "HTML5", "CSS3", "Tailwind CSS"],
         art: "art-web",
+        image: "Web Development.jpg",
       },
       {
         title: "Tools & Databases",
@@ -130,6 +142,7 @@ const rows: PortfolioRow[] = [
         description: "Version control and relational data tools for dependable development.",
         details: ["Git", "GitHub", "MySQL"],
         art: "art-tools",
+        image: "Github.png",
       },
     ],
   },
@@ -143,6 +156,7 @@ const rows: PortfolioRow[] = [
       description: "English, German, and Telugu with proficiency levels.",
       details: ["English (C1)", "German (A2/B1)", "Telugu (Native)"],
       art: "art-languages-spoken",
+      image: "Spoken Lang.jpg",
     }],
   },
   {
@@ -158,7 +172,30 @@ const rows: PortfolioRow[] = [
         "Published in the International Journal of Scientific Research in Engineering and Management (IJSREM), Vol. 08, Issue 07 (July 2024).",
         "Impact Factor: 8.448.",
       ],
-      art: "art-publication",
+      art: "art-ambulance",
+      image: "Ambulance.png",
+      externalLink: {
+        label: "Read publication",
+        url: "https://ijsrem.com/download/the-intelligence-ambulance-bridging-ai-and-human-interaction-technologies",
+      },
+    }],
+  },
+  {
+    id: "certifications",
+    title: "Certifications",
+    items: [{
+      title: "Claude Code in Action",
+      eyebrow: "CERTIFICATION",
+      meta: "Claude Academy · Certificate of completion",
+      description: "Training focused on using Claude Code as part of practical software development workflows.",
+      details: ["Certificate issued through Claude Academy."],
+      art: "art-ai",
+      image: "Claude.png",
+      imageFit: "contain",
+      externalLink: {
+        label: "Verify certificate",
+        url: "https://academy.claude.com/verify/444b4ecccda90807a3cef3fe118b37b3",
+      },
     }],
   },
   {
@@ -171,7 +208,8 @@ const rows: PortfolioRow[] = [
         meta: "TU Darmstadt, Germany · Oct 2024 – Present",
         description: "Advanced study in artificial intelligence and machine learning.",
         details: ["Master of Science in Artificial Intelligence and Machine Learning.", "Technische Universität Darmstadt, Germany.", "Oct 2024 – Present."],
-        art: "art-masters",
+        art: "art-ai",
+        image: "AIML.jpg",
       },
       {
         title: "B.Tech in CSE (AI & ML)",
@@ -180,20 +218,13 @@ const rows: PortfolioRow[] = [
         description: "Computer science engineering, specializing in AI and machine learning.",
         details: ["Bachelor of Technology in Computer Science and Engineering (AI & ML).", "CMR Engineering College, Hyderabad, India.", "2020 – 2024 · CGPA: 7.73/10."],
         art: "art-bachelors",
-      },
-      {
-        title: "Senior Secondary (MPC)",
-        eyebrow: "SENIOR SECONDARY",
-        meta: "Narayana Junior College · 95.8%",
-        description: "Mathematics, Physics, and Chemistry.",
-        details: ["Senior Secondary (MPC: Mathematics, Physics, Chemistry).", "Narayana Junior College · 95.8%."],
-        art: "art-secondary",
+        image: "CMR.png",
       },
     ],
   },
 ];
 
-function StreamingRow({ row, onSelect }: { row: PortfolioRow; onSelect: (item: PortfolioItem) => void }) {
+function StreamingRow({ row, onSelect, siteBasePath }: { row: PortfolioRow; onSelect: (item: PortfolioItem) => void; siteBasePath: string }) {
   const trackRef = useRef<HTMLDivElement>(null);
 
   function scroll(direction: number) {
@@ -212,7 +243,11 @@ function StreamingRow({ row, onSelect }: { row: PortfolioRow; onSelect: (item: P
       <div className="carousel-track" ref={trackRef}>
         {row.items.map((item, index) => (
           <button className="title-card" type="button" key={item.title} onClick={() => onSelect(item)} aria-label={`View details for ${item.title}`}>
-            <span className={`card-art ${item.art}`} aria-hidden="true">
+            <span
+              className={`card-art ${item.art}${item.image ? " has-photo" : ""}${item.imageFit === "contain" ? " photo-contain" : ""}`}
+              aria-hidden="true"
+            >
+              {item.image && <img className="card-photo" src={`${siteBasePath}/assets/${encodeURIComponent(item.image)}`} alt="" loading="lazy" />}
               <span className="art-index">{String(index + 1).padStart(2, "0")}</span>
               <span className="art-mark" />
               <span className="art-caption">{item.eyebrow}</span>
@@ -232,7 +267,16 @@ function StreamingRow({ row, onSelect }: { row: PortfolioRow; onSelect: (item: P
 
 export default function Home() {
   const [selected, setSelected] = useState<PortfolioItem | null>(null);
+  const [theme, setTheme] = useState<"dark" | "light">("dark");
   const siteBasePath = process.env.NODE_ENV === "production" ? "/MyPortfolio" : "";
+
+  useEffect(() => {
+    const savedTheme = window.localStorage.getItem("portfolio-theme");
+    if (savedTheme === "light" || savedTheme === "dark") {
+      setTheme(savedTheme);
+      document.documentElement.dataset.theme = savedTheme;
+    }
+  }, []);
 
   useEffect(() => {
     if (!selected) return;
@@ -243,6 +287,13 @@ export default function Home() {
     return () => window.removeEventListener("keydown", closeOnEscape);
   }, [selected]);
 
+  function toggleTheme() {
+    const nextTheme = theme === "dark" ? "light" : "dark";
+    setTheme(nextTheme);
+    document.documentElement.dataset.theme = nextTheme;
+    window.localStorage.setItem("portfolio-theme", nextTheme);
+  }
+
   return (
     <main className="streaming-site" id="home">
       <header className="stream-header">
@@ -250,7 +301,9 @@ export default function Home() {
         <nav className="stream-nav" aria-label="Main navigation">
           {navigation.map((item) => <a href={item.href} key={item.label}>{item.label}</a>)}
         </nav>
-        <a className="profile-link" href="#contact" aria-label="Go to contact section"><span>SV</span></a>
+        <button className="theme-toggle" type="button" onClick={toggleTheme} aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`} title={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}>
+          {theme === "dark" ? <Sun size={17} aria-hidden="true" /> : <Moon size={17} aria-hidden="true" />}
+        </button>
       </header>
 
       <section className="billboard" aria-labelledby="hero-title">
@@ -259,12 +312,10 @@ export default function Home() {
           className="billboard-image-wrap"
           role="img"
           aria-label="Portrait of Suhan Reddy Vanga"
-          style={{
-            backgroundImage: `url("${siteBasePath}/assets/profile-photo.png"), radial-gradient(ellipse at 50% 38%, rgba(115,33,35,.7), transparent 56%), linear-gradient(135deg,#241719,#101010 72%)`,
-          }}
-        />
+        >
+          <img className="billboard-photo" src={`${siteBasePath}/assets/profile-photo.png`} alt="" />
+        </div>
         <div className="billboard-copy">
-          <p className="billboard-kicker"><span className="netflix-n">N</span> PORTFOLIO ORIGINAL</p>
           <h1 id="hero-title">Suhan Reddy Vanga</h1>
           <p className="billboard-subtitle">M.Sc. Artificial Intelligence &amp; Machine Learning Student | AI/ML &amp; Web Developer</p>
           <div className="billboard-tags"><span>TU Darmstadt</span><i /> <span>Teaching Assistant · Introduction to Large Language Models</span></div>
@@ -281,12 +332,11 @@ export default function Home() {
       </section>
 
       <div className="catalogue">
-        {rows.map((row) => <StreamingRow row={row} onSelect={setSelected} key={row.id} />)}
+        {rows.map((row) => <StreamingRow row={row} onSelect={setSelected} siteBasePath={siteBasePath} key={row.id} />)}
       </div>
 
       <footer className="stream-footer" id="contact">
         <div className="footer-inner">
-          <p className="footer-label"><span className="netflix-n">N</span> READY FOR THE NEXT CHAPTER</p>
           <h2>Let&apos;s build something that matters.</h2>
           <p>AI/ML &amp; Web Developer · TU Darmstadt · Darmstadt, Germany</p>
           <a className="linkedin-link" href="https://www.linkedin.com/in/suhan-reddy-vanga-b475b9246/" target="_blank" rel="noreferrer">Connect on LinkedIn <ChevronRight size={16} /></a>
@@ -298,13 +348,24 @@ export default function Home() {
         <div className="modal-backdrop" onMouseDown={(event) => { if (event.target === event.currentTarget) setSelected(null); }}>
           <section className="detail-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
             <button className="modal-close" type="button" onClick={() => setSelected(null)} aria-label="Close details"><X size={19} /></button>
-            <div className={`modal-art card-art ${selected.art}`} aria-hidden="true"><span className="art-mark" /><span className="art-caption">{selected.eyebrow}</span></div>
+            <div
+              className={`modal-art card-art ${selected.art}${selected.image ? " has-photo" : ""}${selected.imageFit === "contain" ? " photo-contain" : ""}`}
+              aria-hidden="true"
+            >
+              {selected.image && <img className="card-photo" src={`${siteBasePath}/assets/${encodeURIComponent(selected.image)}`} alt="" />}
+              <span className="art-mark" /><span className="art-caption">{selected.eyebrow}</span>
+            </div>
             <div className="modal-copy">
               <p className="modal-eyebrow">{selected.eyebrow}</p>
               <h2 id="modal-title">{selected.title}</h2>
               <p className="modal-meta">{selected.meta}</p>
               <p className="modal-description">{selected.description}</p>
               <ul>{selected.details.map((detail) => <li key={detail}>{detail}</li>)}</ul>
+              {selected.externalLink && (
+                <a className="certificate-link" href={selected.externalLink.url} target="_blank" rel="noreferrer">
+                  <ExternalLink size={15} aria-hidden="true" /> {selected.externalLink.label}
+                </a>
+              )}
               <button className="modal-done" type="button" onClick={() => setSelected(null)}>Close</button>
             </div>
           </section>

@@ -61,7 +61,7 @@ const rows: PortfolioRow[] = [
         art: "art-ai",
       },
       {
-        title: "Intelligent Ambulance",
+        title: "The Intelligence Ambulance: Bridging AI and Human Interaction Technologies",
         eyebrow: "AI-ASSISTED EMERGENCY RESPONSE",
         meta: "Academic project · Published research",
         description: "Exploring predictive analytics and AI-assisted decision support for emergency response and patient-care workflows.",
@@ -135,9 +135,9 @@ const rows: PortfolioRow[] = [
   },
   {
     id: "languages",
-    title: "Languages",
+    title: "Languages Spoken",
     items: [{
-      title: "Languages",
+      title: "Languages Spoken",
       eyebrow: "LANGUAGES",
       meta: "English · German · Telugu",
       description: "English, German, and Telugu with proficiency levels.",
@@ -149,12 +149,12 @@ const rows: PortfolioRow[] = [
     id: "publications",
     title: "Publications & Research",
     items: [{
-      title: "The Intelligent Ambulance",
+      title: "The Intelligence Ambulance: Bridging AI and Human Interaction Technologies",
       eyebrow: "RESEARCH PUBLICATION",
       meta: "IJSREM · Vol. 08, Issue 07 · July 2024",
       description: "Bridging AI and human interaction technologies in emergency response.",
       details: [
-        '"The Intelligence Ambulance - Bridging AI and Human Interaction Technologies."',
+        '"The Intelligence Ambulance: Bridging AI and Human Interaction Technologies."',
         "Published in the International Journal of Scientific Research in Engineering and Management (IJSREM), Vol. 08, Issue 07 (July 2024).",
         "Impact Factor: 8.448.",
       ],

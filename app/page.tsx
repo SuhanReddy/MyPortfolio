@@ -9,6 +9,7 @@ type PortfolioItem = {
   meta: string;
   description: string;
   details: string[];
+  skills?: string[];
   art: string;
   image?: string;
   imageFit?: "cover" | "contain";
@@ -183,20 +184,73 @@ const rows: PortfolioRow[] = [
   {
     id: "certifications",
     title: "Certifications",
-    items: [{
-      title: "Claude Code in Action",
-      eyebrow: "CERTIFICATION",
-      meta: "Claude Academy · Certificate of completion",
-      description: "Training focused on using Claude Code as part of practical software development workflows.",
-      details: ["Certificate issued through Claude Academy."],
-      art: "art-ai",
-      image: "Claude.png",
-      imageFit: "contain",
-      externalLink: {
-        label: "Verify certificate",
-        url: "https://academy.claude.com/verify/444b4ecccda90807a3cef3fe118b37b3",
+    items: [
+      {
+        title: "Claude Code 101",
+        eyebrow: "CERTIFICATION",
+        meta: "Claude Academy · Certificate of completion",
+        description: "Foundational training in using Claude Code for coding workflows, iterative development, and AI-assisted engineering.",
+        details: [
+          "Claude Code",
+          "AI-assisted terminal workflows",
+          "Prompt-driven development",
+          "Debugging and iteration with AI",
+          "Multi-file editing and code navigation",
+          "Context-aware software development",
+        ],
+        skills: ["Claude Code", "Prompt Engineering", "AI Workflows", "Debugging", "Code Navigation", "Terminal Automation"],
+        art: "art-ai",
+        image: "claude code 101.png",
+        imageFit: "cover",
+        externalLink: {
+          label: "Verify certificate",
+          url: "https://academy.claude.com/verify/940ffafdfcc72f1ba636fae327c88d71",
+        },
       },
-    }],
+      {
+        title: "Building with the Claude API",
+        eyebrow: "CERTIFICATION",
+        meta: "Claude Academy · Certificate of completion",
+        description: "Hands-on learning for integrating Anthropic's Claude API into production-ready AI features and applications.",
+        details: [
+          "Anthropic Claude API",
+          "Prompt engineering",
+          "API integration",
+          "Function calling and tool use",
+          "Context management",
+          "AI application design",
+        ],
+        skills: ["Claude API", "Prompt Engineering", "API Integration", "Tool Use", "Context Management", "LLM Apps"],
+        art: "art-ai",
+        image: "Building with the claude API.png",
+        imageFit: "cover",
+        externalLink: {
+          label: "Verify certificate",
+          url: "https://academy.claude.com/verify/31ea6d1935e891b04769b7c3c803ff3e",
+        },
+      },
+      {
+        title: "Claude Code in Action",
+        eyebrow: "CERTIFICATION",
+        meta: "Claude Academy · Certificate of completion",
+        description: "Training focused on using Claude Code as part of practical software development workflows.",
+        details: [
+          "Claude Code",
+          "AI coding workflows",
+          "Real-world engineering tasks",
+          "Code generation and debugging",
+          "Productive software collaboration",
+        ],
+        skills: ["Claude Code", "AI Pair Programming", "Code Generation", "Debugging", "Software Workflow", "Engineering Tasks"],
+        art: "art-ai",
+        image: "Claude.png",
+        imageFit: "contain",
+        externalLink: {
+          label: "Verify certificate",
+          url: "https://academy.claude.com/verify/444b4ecccda90807a3cef3fe118b37b3",
+        },
+      },
+    ],
   },
   {
     id: "education",
@@ -244,7 +298,7 @@ function StreamingRow({ row, onSelect, siteBasePath }: { row: PortfolioRow; onSe
         {row.items.map((item, index) => (
           <button className="title-card" type="button" key={item.title} onClick={() => onSelect(item)} aria-label={`View details for ${item.title}`}>
             <span
-              className={`card-art ${item.art}${item.image ? " has-photo" : ""}${item.imageFit === "contain" ? " photo-contain" : ""}`}
+              className={`card-art ${item.art}${item.image ? " has-photo" : ""}${item.imageFit === "contain" ? " photo-contain" : ""}${item.imageFit === "cover" ? " photo-cover" : ""}`}
               aria-hidden="true"
             >
               {item.image && <img className="card-photo" src={`${siteBasePath}/assets/${encodeURIComponent(item.image)}`} alt="" loading="lazy" />}
@@ -349,7 +403,7 @@ export default function Home() {
           <section className="detail-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
             <button className="modal-close" type="button" onClick={() => setSelected(null)} aria-label="Close details"><X size={19} /></button>
             <div
-              className={`modal-art card-art ${selected.art}${selected.image ? " has-photo" : ""}${selected.imageFit === "contain" ? " photo-contain" : ""}`}
+              className={`modal-art card-art ${selected.art}${selected.image ? " has-photo" : ""}${selected.imageFit === "contain" ? " photo-contain" : ""}${selected.imageFit === "cover" ? " photo-cover" : ""}`}
               aria-hidden="true"
             >
               {selected.image && <img className="card-photo" src={`${siteBasePath}/assets/${encodeURIComponent(selected.image)}`} alt="" />}
@@ -360,6 +414,11 @@ export default function Home() {
               <h2 id="modal-title">{selected.title}</h2>
               <p className="modal-meta">{selected.meta}</p>
               <p className="modal-description">{selected.description}</p>
+              {selected.skills && selected.skills.length > 0 && (
+                <div className="skill-pills" aria-label={`${selected.title} skills`}>
+                  {selected.skills.map((skill) => <span className="skill-pill" key={skill}>{skill}</span>)}
+                </div>
+              )}
               <ul>{selected.details.map((detail) => <li key={detail}>{detail}</li>)}</ul>
               {selected.externalLink && (
                 <a className="certificate-link" href={selected.externalLink.url} target="_blank" rel="noreferrer">
